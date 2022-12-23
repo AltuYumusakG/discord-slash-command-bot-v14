@@ -1,0 +1,25 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A Discord Bot works with Slash Commands.",
+  "main": "index.js",
+  "scripts": {
+    "start": "\n:start\nnode index.js\ngoto start"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "handler",
+    "v14"
+  ],
+  "author": "Altuğ",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.0",
+    "discord.js": "^14.7.1",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "lodash.uniqwith": "^4.5.0",
+    "moment": "^2.29.4"
+  }
+}
