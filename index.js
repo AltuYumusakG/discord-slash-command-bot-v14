@@ -10,11 +10,12 @@ client.commands = new Collection()
 
 const rest = new REST({ version: '10' }).setToken(token);
 
+//
 const log = l => {
     console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`)
 };
 
-//command-handler
+//#region Command Handler 
 const commands = [];
 const commandFiles = readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -22,7 +23,6 @@ for (const file of commandFiles) {
     commands.push(command.data.toJSON());
     client.commands.set(command.data.name, command);
 }
-
 client.on("ready", async () => {
     try {
         await rest.put(
@@ -34,7 +34,9 @@ client.on("ready", async () => {
     }
     log(`${client.user.username} Aktif Edildi!`);
 })
+//#endregion Command Handler
 
+//#region Event Handler
 const eventFiles = readdirSync('./src/events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./src/events/${file}`);
@@ -44,5 +46,6 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args));
     }
 }
+//#endregion Event Handler
 
 client.login(token)
