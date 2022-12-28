@@ -10,7 +10,6 @@ client.commands = new Collection()
 
 const rest = new REST({ version: '10' }).setToken(token);
 
-//
 const log = l => {
     console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`)
 };
@@ -32,7 +31,7 @@ client.on("ready", async () => {
     } catch (error) {
         console.error(error);
     }
-    log(`${client.user.username} Aktif Edildi!`);
+    log(`${client.user.username} has been started!`);
 })
 //#endregion Command Handler
 
