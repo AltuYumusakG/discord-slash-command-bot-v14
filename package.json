@@ -1,6 +1,6 @@
 {
   "name": "discord-bot",
-  "version": "1.0.0b",
+  "version": "1.0.1a",
   "description": "A Discord Bot works with Slash Commands.",
   "main": "index.js",
   "scripts": {
