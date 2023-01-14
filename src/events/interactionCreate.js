@@ -6,12 +6,13 @@ module.exports = {
     name: 'interactionCreate',
     execute: async (interaction) => {
         let client = interaction.client;
-        if (!interaction.type == InteractionType.ApplicationCommand && interaction.user.bot && interaction.isCommand()) return;
-
-        for (const file of commandFiles) {
-            const command = require(`../../src/commands/${file}`);
-            if (interaction.commandName.toLowerCase() === command.data.name.toLowerCase()) {
-                command.run(client, interaction)
+        
+        if (interaction.isCommand() && interaction.type == InteractionType.ApplicationCommand && !interaction.user.bot) {
+            for (const file of commandFiles) {
+                const command = require(`../../src/commands/${file}`);
+                if (interaction.commandName.toLowerCase() === command.data.name.toLowerCase()) {
+                    command.run(client, interaction)
+                }
             }
         }
     }
