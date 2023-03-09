@@ -16,7 +16,7 @@ module.exports = {
             .addFields(
                 { name: "Bot's Owner", value: `${owner.name} | ${owner.id}`, inline: true },
                 { name: "Memory Usage", value: `${(process.memoryUsage().heapUsed / 262144).toFixed(2)} MB`, inline: true },
-                { name: "Processor Usage", value: `${os.cpus().map(cpu => `${cpu.model}`)[0]}`, inline: true },
+                { name: "Processor", value: `${os.cpus().map(cpu => `${cpu.model}`)[0]}`, inline: true },
                 { name: "Uptime Duration", value: `${Math.floor(moment.duration(client.uptime).asMinutes())} Minute(s)`, inline: true },
                 { name: "Node.js Version", value: `${process.version}`, inline: true },
                 { name: "Discord.js Version", value: `${discord.version}`, inline: true },
